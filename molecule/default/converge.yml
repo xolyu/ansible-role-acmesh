@@ -1,0 +1,25 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt:
+        update_cache: true
+        cache_valid_time: 600
+      when: ansible_os_family == "Debian"
+      changed_when: false
+
+    - debug:
+        var: ansible_facts
+
+    - name: Ensure openssl is installed.
+      package:
+        name: openssl
+        state: present
+
+  roles:
+    - role: xolyu.acmesh
+      acmesh_ensure_requirements: yes
+      acmesh_cron_state: ignored
