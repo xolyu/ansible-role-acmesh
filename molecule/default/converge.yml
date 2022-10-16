@@ -11,7 +11,8 @@
       when: ansible_os_family == "Debian"
       changed_when: false
 
-    - debug:
+    - name: Print ansible_facts.
+      debug:
         var: ansible_facts
 
     - name: Ensure openssl is installed.
@@ -22,4 +23,5 @@
   roles:
     - role: xolyu.acmesh
       acmesh_ensure_requirements: yes
+      acmesh_version: master
       acmesh_cron_state: ignored
