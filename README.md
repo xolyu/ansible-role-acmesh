@@ -1,5 +1,8 @@
 # acme&middot;sh
 
+[![CI](https://github.com/xolyu/ansible-role-acmesh/actions/workflows/ci.yml/badge.svg)](https://github.com/xolyu/ansible-role-acmesh/actions/workflows/ci.yml)
+
+
 Installs [acme.sh](https://api.github.com/repos/acmesh-official/acme.sh) from the latest Release on GitHub.
 
 This Role creates a normal user (called `acmesh` by default), if it does not exist and installes acme.sh as this user, by default in it's home directory. A certificate renewal cronjob is created for this user and a bash alias `acmesh` is defined.
@@ -272,7 +275,7 @@ Issue an ECC certificate with a task by using `include_role`.
 
 ## License
 
-GNU Lesser General Public License v3.0 only
+GNU General Public License v3.0
 
 
 ## Author Information
