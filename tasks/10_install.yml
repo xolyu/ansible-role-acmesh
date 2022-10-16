@@ -23,13 +23,12 @@
         _acmesh_update_is_required: >-
           {{ _acmesh_latest_version is version(_acmesh_installed_version, '>') }}
         _acmesh_zipball_url: >-
-          {{ ( lookup('url', 'https://api.github.com/repos/acmesh-official/acme.sh/releases/latest')
-          | from_json ).zipball_url | default('') }}
+          {{ github_api_acmesh_latest.zipball_url | default('') }}
       vars:
+        github_api_acmesh_latest: >-
+          {{ lookup('url', 'https://api.github.com/repos/acmesh-official/acme.sh/releases/latest') | from_json }}
         _acmesh_latest_version: >-
-          {{ ( lookup('url', 'https://api.github.com/repos/acmesh-official/acme.sh/releases/latest')
-          | from_json ).tag_name | default('') | regex_search('(\d+\.\d+\.\d+)')
-          | default('999', true) }}
+          {{ github_api_acmesh_latest.tag_name | default('') | regex_search('(\d+\.\d+\.\d+)') | default('999', true) }}
       when: acmesh_version == 'latest'
 
     - name: Define _acmesh_update_is_required and _acmesh_zipball_url (for master branch).
