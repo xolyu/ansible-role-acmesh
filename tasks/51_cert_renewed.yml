@@ -10,6 +10,7 @@
       -d {{ _acmesh_crt.domains | first }}
       {{- (item == 'ecc') | ternary(' --ecc', '') }}
       {{- _acmesh_crt.force | ternary(' --force', '') }}
+  notify: "{{ _acmesh_crt.notify }}"
   with_items: "{{ _acmesh_crt_type_list }}"
   when:
     - _acmesh_crt_dir_stat[item].exists

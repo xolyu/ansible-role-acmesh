@@ -182,6 +182,10 @@ _For automatic ensuring of the packages, see variable `acmesh_ensure_requirement
   * `keylength`  
     Allows to set specific keylength, overwrites `type`, even if `type: both`.  
     Choices: *see acme.sh documentation*
+  * `notify`  
+    Notify when certificate was issued or renewed.  
+    Type: str _or_ List of Strings  
+    Default: `[]`
 
 <!--
 * **`VAR`**  

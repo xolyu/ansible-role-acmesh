@@ -14,6 +14,7 @@
       {{- (' --server ' ~ _acmesh_crt.server) if _acmesh_crt.server is defined else '' }}
       --keylength {{ item }}
       {{ ['-d'] | product(_acmesh_crt.domains) | map('join', ' ') | join(' ') }}
+  notify: "{{ _acmesh_crt.notify }}"
   vars:
     type: "{{ item | regex_search('^ec-') is not none | ternary('ecc', 'rsa') }}"
     generics_in_dir: "{{ _acmesh_crt_dir_content[type].generics }}"

@@ -22,6 +22,7 @@
       test: "{{ _acmesh_cert.test | default(acmesh_default_cert_test) }}"
       server: "{{ _acmesh_cert.server | default(omit) }}"
       keylength: "{{ _acmesh_cert.keylength | default(omit) }}"
+      notify: "{{ _acmesh_cert.notify | default([]) }}"
 
 - name: Define _acmesh_crt_type_list.
   set_fact:
