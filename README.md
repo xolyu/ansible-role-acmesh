@@ -111,20 +111,20 @@ _For automatic ensuring of the packages, see variable `acmesh_ensure_requirement
 
 * **`acmesh_cron_state`**  
   Whether the cronjob should be present or absent.  
-  Choices: `present`, `absemt`  
+  Choices: `present`, `absent`, `ignored`  
   Default: `present`
 
 * **`acmesh_cron_hour`**  
   The hour value for the cronjob. Defaults to `*` if it is unset or empty.  
-  Default: `VAL`
+  Default: `3`
 
 * **`acmesh_cron_minute`**  
   The minute value for the cronjob. Defaults to `0` if it is unset or empty.  
-  Default: `VAL`
+  Default: `40`
 
 * **`acmesh_cron_weekday`**  
   The weekday value for the cronjob. Defaults to `*` if it is unset or empty.  
-  Default: `VAL`
+  Default: `0,3`
 
 * **`acmesh_cron_day`**  
   The day value for the cronjob. Defaults to `*` if it is unset or empty.  
@@ -132,7 +132,7 @@ _For automatic ensuring of the packages, see variable `acmesh_ensure_requirement
 
 * **`acmesh_bash_aliases`**  
   Whether the bash aliases should be present or absent.  
-  Choices: `present`, `absemt`  
+  Choices: `present`, `absent`  
   Default: `present`
 
 ### Certificate handling
