@@ -166,7 +166,8 @@ _For automatic ensuring of the packages, see variable `acmesh_ensure_requirement
     List of domains. First domain is primary.
   * `state`  
     Desired state of the certificate.  
-    Choices: `issued`, `renewed`, `disabled`  
+    The state `issued` will enable cert if it already exists but is disabled.  
+    Choices: `issued`, `renewed`, `enabled`, `disabled`  
     Default: `issued`
   * `type`  
     Type of the certificate. For keylength defaults see `acmesh_keylength_rsa` and `acmesh_keylength_ecc`.  

@@ -27,3 +27,11 @@
     ( _acmesh_crt_dir_stat[type].exists and '.cer' not in generics_in_dir )
   ignore_errors: "{{ acmesh_ignore_cert_errors }}"
   register: _result
+
+- name: Include tasks cert_enabled.
+  include_tasks: "51_cert_enabled.yml"
+  vars:
+    generics_together: "{{ _acmesh_crt_dir_content | dict2items | map(attribute='value')
+      | map(attribute='generics') | flatten | unique }}"
+  when: >-
+    _result is not changed and '.conf.removed' in generics_together
